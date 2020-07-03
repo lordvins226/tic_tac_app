@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
+import 'package:tic_tac_app/ui/widgets/button_submit.dart';
 import 'package:tic_tac_app/ui/widgets/getstarted.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -122,7 +123,13 @@ final pages = [
                   fontFamily: "Billy",
                   fontWeight: FontWeight.w600),
             ),
-            GetStarted()
+            SizedBox(height: 5),
+            ButtonSubmit(
+              title: 'Commencer',
+              onPressed: () async {
+               print("commencer");
+              },
+            ),
           ],
         )
       ],
