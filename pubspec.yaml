@@ -22,6 +22,10 @@ dependencies:
   google_sign_in: ^4.3.0
   email_validator: ^1.0.0
   cloud_firestore: ^0.13.0+1
+  lottie: ^0.4.0+1
+  barcode_scan: 1.0.0
+
+
 
 dev_dependencies:
   flutter_test:
@@ -35,6 +39,12 @@ flutter:
 
 
   assets:
+  - assets/images/
+  - assets/animations/
+  - assets/icons/
+  - assets/images/menus/
+  - assets/images/topmenu/
+  - assets/images/popular_foods/
   - assets/images/bestfood/
 
 

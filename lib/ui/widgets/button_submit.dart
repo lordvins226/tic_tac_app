@@ -22,7 +22,8 @@ class _ButtonSubmitState extends State<ButtonSubmit> {
     return GestureDetector(
       onTap: widget.onPressed,
       child: Container(
-        width: MediaQuery.of(context).size.width / 1.5,
+        height: 50,
+        //width: MediaQuery.of(context).size.width / 1.5,
         padding: EdgeInsets.symmetric(vertical: 15),
         alignment: Alignment.center,
         decoration: BoxDecoration(
@@ -35,8 +36,8 @@ class _ButtonSubmitState extends State<ButtonSubmit> {
                   spreadRadius: 2)
             ],
             gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
+//              begin: Alignment.centerLeft,
+//              end: Alignment.centerRight,
               colors: [Color(0xFFf7418c), Color(0xFFfbab66)],
             )),
         child: Text(

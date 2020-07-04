@@ -19,7 +19,6 @@ class WelcomePage extends StatelessWidget {
   }
 }
 
-
 final pages = [
   Container(
     color: Colors.pink,
@@ -49,7 +48,6 @@ final pages = [
                   fontFamily: "Billy",
                   fontWeight: FontWeight.w600),
             ),
-
           ],
         )
       ],
@@ -124,12 +122,8 @@ final pages = [
                   fontWeight: FontWeight.w600),
             ),
             SizedBox(height: 5),
-            ButtonSubmit(
-              title: 'Commencer',
-              onPressed: () async {
-               print("commencer");
-              },
-            ),
+            Container(width: 250,
+                child: GetStarted())
           ],
         )
       ],
