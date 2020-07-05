@@ -41,7 +41,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           _bottomIcons(Icons.home, 'Accueil'),
           //_bottomIcons(Icons.shopping_cart, 'Panier'),
           _bottomIcons(Icons.location_on, 'Map'),
-          _bottomIcons(FontAwesomeIcons.user, 'Profile'),
+          _bottomIcons(Icons.person, 'Profile'),
         ],
         onTap: (int index) {
           setState(() {

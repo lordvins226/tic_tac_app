@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tic_tac_app/ui/widgets/link_icon.dart';
+import 'package:tic_tac_app/ui/widgets/popular_food.dart';
 import 'package:tic_tac_app/ui/widgets/search_input.dart';
 import 'package:tic_tac_app/ui/widgets/tictac_title.dart';
+import 'package:tic_tac_app/ui/widgets/top_menu.dart';
 import 'package:tic_tac_app/utils/app_color.dart';
 import 'package:tic_tac_app/utils/responsive_builder.dart';
 
@@ -40,6 +42,8 @@ class _HomePageState extends State<HomePage> {
                     _buildHeader(context),
                     _buildSubHeader(context),
                     SearchInput(),
+                    TopMenus(),
+                    PopularFoodsWidget()
                   ],
                 ),
               ),
@@ -85,15 +89,17 @@ _buildHeader(BuildContext context) {
       children: <Widget>[
         LinkIcon(
           imageSrc: 'assets/icons/menu.png',
-          height: 10,
-          width: 16,
-          onTap: () {},
+          height: 20,
+          width: 20,
+          onTap: () {
+            print("Menu");
+          },
         ),
         GestureDetector(
             onTap: () {
               Navigator.pushReplacementNamed(context, "/Profile");
             },
-            child: Icon(FontAwesomeIcons.shoppingBag)),
+            child: Icon(FontAwesomeIcons.shoppingBag,size: 20,)),
       ],
     ),
   );

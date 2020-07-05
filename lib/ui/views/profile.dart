@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:tic_tac_app/utils/responsive_builder.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -9,6 +9,15 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ResponsiveBuilder(builder: (context, sizingInformation) {
+      return SafeArea(
+        child: Scaffold(
+            body: Center(
+          child: Container(
+            child: Text("Profile"),
+          ),
+        )),
+      );
+    });
   }
 }
