@@ -35,14 +35,47 @@ final pages = [
         Column(
           children: <Widget>[
             new Text(
-              "Hi",
+              "Bienvenue",
               style: TextStyle(
                   fontSize: 30,
                   fontFamily: "Billy",
                   fontWeight: FontWeight.w600),
             ),
             new Text(
-              "It's Me",
+              "Sur TicTac",
+              style: TextStyle(
+                  fontSize: 30,
+                  fontFamily: "Billy",
+                  fontWeight: FontWeight.w600),
+            ),
+          ],
+        )
+      ],
+    ),
+  ),
+  Container(
+    color: Color(0xFFfbab66),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Image.asset(
+          'assets/images/bestfood/ic_best_food_2.jpeg',
+          fit: BoxFit.cover,
+        ),
+        Padding(padding: const EdgeInsets.all(20.0)),
+        Column(
+          children: <Widget>[
+            new Text(
+              "Ne Jetez",
+              style: TextStyle(
+                  fontSize: 30,
+                  fontFamily: "Billy",
+                  fontWeight: FontWeight.w600),
+            ),
+            new Text(
+              "Pas La Nourriture",
               style: TextStyle(
                   fontSize: 30,
                   fontFamily: "Billy",
@@ -61,28 +94,28 @@ final pages = [
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Image.asset(
-          'assets/images/bestfood/ic_best_food_2.jpeg',
+          'assets/images/bestfood/ic_best_food_3.jpeg',
           fit: BoxFit.cover,
         ),
         Padding(padding: const EdgeInsets.all(20.0)),
         Column(
           children: <Widget>[
             new Text(
-              "Take a",
+              "Luttons Contre",
               style: TextStyle(
                   fontSize: 30,
                   fontFamily: "Billy",
                   fontWeight: FontWeight.w600),
             ),
             new Text(
-              "look at",
+              " le Gaspillage ",
               style: TextStyle(
                   fontSize: 30,
                   fontFamily: "Billy",
                   fontWeight: FontWeight.w600),
             ),
             new Text(
-              "Liquid Swipe",
+              "Alimentaire",
               style: TextStyle(
                   fontSize: 30,
                   fontFamily: "Billy",
@@ -101,27 +134,27 @@ final pages = [
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Image.asset(
-          'assets/images/bestfood/ic_best_food_3.jpeg',
+          'assets/images/bestfood/ic_best_food_4.jpeg',
           fit: BoxFit.cover,
         ),
         Padding(padding: const EdgeInsets.all(20.0)),
         Column(
           children: <Widget>[
             new Text(
-              "Liked?",
+              "Soyons",
               style: TextStyle(
                   fontSize: 30,
                   fontFamily: "Billy",
                   fontWeight: FontWeight.w600),
             ),
             new Text(
-              "Fork!",
+              "Ecolo!",
               style: TextStyle(
                   fontSize: 30,
                   fontFamily: "Billy",
                   fontWeight: FontWeight.w600),
             ),
-            SizedBox(height: 5),
+            SizedBox(height: 10),
             Container(width: 250,
                 child: GetStarted())
           ],

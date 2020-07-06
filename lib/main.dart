@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:tic_tac_app/service_locator.dart';
+import 'package:tic_tac_app/ui/views/FoodOrderPage.dart';
 import 'package:tic_tac_app/ui/views/login.dart';
 import 'package:tic_tac_app/ui/views/profile.dart';
 import 'package:tic_tac_app/ui/views/qr.dart';
 import 'package:tic_tac_app/ui/views/register.dart';
+import 'package:tic_tac_app/ui/views/welcome.dart';
 import 'package:tic_tac_app/ui/widgets/bottom_bar.dart';
 import 'package:tic_tac_app/utils/lifecycle_manager.dart';
 
@@ -37,10 +39,11 @@ class MyApp extends StatelessWidget {
           "/Login": (_) => LoginPage(),
           "/Register": (_) => RegisterPage(),
           "/Profile": (_) => ProfilePage(),
+          "/Cart": (_) => FoodOrderPage()
         },
         home:  Consumer<Auth>(
           builder: (context, notifier, child) {
-            return notifier.user != null ? MyHomePage() : LoginPage();
+            return notifier.user != null ? MyHomePage() : WelcomePage();
           },
         ),
         theme: ThemeData(

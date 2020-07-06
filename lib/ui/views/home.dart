@@ -97,7 +97,7 @@ _buildHeader(BuildContext context) {
         ),
         GestureDetector(
             onTap: () {
-              Navigator.pushReplacementNamed(context, "/Profile");
+              Navigator.pushReplacementNamed(context, "/Cart");
             },
             child: Icon(FontAwesomeIcons.shoppingBag,size: 20,)),
       ],

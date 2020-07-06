@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FoodOrderPage extends StatefulWidget {
   @override
@@ -16,15 +17,15 @@ class _FoodOrderPageState extends State<FoodOrderPage> {
           backgroundColor: Color(0xFFFAFAFA),
           elevation: 0,
           leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios,
-              color: Color(0xFF3a3737),
-            ),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: Color(0xFF3a3737),
+              ),
+              onPressed: () =>
+                  Navigator.pushReplacementNamed(context, "/Home")),
           title: Center(
             child: Text(
-              "Item Carts",
+              "Paiement",
               style: TextStyle(
                   color: Color(0xFF3a3737),
                   fontWeight: FontWeight.w600,
@@ -46,7 +47,7 @@ class _FoodOrderPageState extends State<FoodOrderPage> {
                 Container(
                   padding: EdgeInsets.only(left: 5),
                   child: Text(
-                    "Your Food Cart",
+                    "Votre Panier",
                     style: TextStyle(
                         fontSize: 20,
                         color: Color(0xFF3a3a3b),
@@ -58,17 +59,17 @@ class _FoodOrderPageState extends State<FoodOrderPage> {
                   height: 10,
                 ),
                 CartItem(
-                    productName: "Grilled Salmon",
-                    productPrice: "\$96.00",
-                    productImage: "ic_popular_food_1",
+                    productName: "Mafé",
+                    productPrice: "1000fr",
+                    productImage: "mafe",
                     productCartQuantity: "2"),
                 SizedBox(
                   height: 10,
                 ),
                 CartItem(
-                    productName: "Meat vegetable",
-                    productPrice: "\$65.08",
-                    productImage: "ic_popular_food_4",
+                    productName: "Fufu",
+                    productPrice: "1500fr",
+                    productImage: "fufu",
                     productCartQuantity: "5"),
                 SizedBox(
                   height: 10,
@@ -84,7 +85,7 @@ class _FoodOrderPageState extends State<FoodOrderPage> {
                 Container(
                   padding: EdgeInsets.only(left: 5),
                   child: Text(
-                    "Payment Method",
+                    "Methode de Paiement",
                     style: TextStyle(
                         fontSize: 20,
                         color: Color(0xFF3a3a3b),
@@ -190,7 +191,7 @@ class TotalCalculationWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    "Grilled Salmon",
+                    "Mafé",
                     style: TextStyle(
                         fontSize: 18,
                         color: Color(0xFF3a3a3b),
@@ -198,7 +199,7 @@ class TotalCalculationWidget extends StatelessWidget {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "\$192",
+                    "1000fr",
                     style: TextStyle(
                         fontSize: 18,
                         color: Color(0xFF3a3a3b),
@@ -214,7 +215,7 @@ class TotalCalculationWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    "Meat vegetable",
+                    "Fufu",
                     style: TextStyle(
                         fontSize: 18,
                         color: Color(0xFF3a3a3b),
@@ -222,7 +223,7 @@ class TotalCalculationWidget extends StatelessWidget {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "\$102",
+                    "1500fr",
                     style: TextStyle(
                         fontSize: 18,
                         color: Color(0xFF3a3a3b),
@@ -246,7 +247,7 @@ class TotalCalculationWidget extends StatelessWidget {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "\$292",
+                    "2500fr",
                     style: TextStyle(
                         fontSize: 18,
                         color: Color(0xFF3a3a3b),
@@ -286,7 +287,7 @@ class PromoCodeWidget extends StatelessWidget {
                   borderSide: BorderSide(color: Color(0xFFe6e1e1), width: 1.0),
                   borderRadius: BorderRadius.circular(7)),
               fillColor: Colors.white,
-              hintText: 'Add Your Promo Code',
+              hintText: 'Ajouter un code Promo',
               filled: true,
               suffixIcon: IconButton(
                   icon: Icon(
@@ -348,7 +349,7 @@ class CartItem extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Center(
                         child: Image.asset(
-                      "assets/images/popular_foods/$productImage.png",
+                      "assets/images/topmenu/$productImage.jpg",
                       width: 110,
                       height: 100,
                     )),
@@ -420,7 +421,7 @@ class CartItem extends StatelessWidget {
 }
 
 class CartIconWithBadge extends StatelessWidget {
-  int counter = 3;
+  int counter = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -428,7 +429,8 @@ class CartIconWithBadge extends StatelessWidget {
       children: <Widget>[
         IconButton(
             icon: Icon(
-              Icons.business_center,
+              FontAwesomeIcons.shoppingBag,
+              size: 20,
               color: Color(0xFF3a3737),
             ),
             onPressed: () {}),
@@ -451,6 +453,7 @@ class CartIconWithBadge extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.red,
                       fontSize: 8,
+                      fontWeight: FontWeight.w700
                     ),
                     textAlign: TextAlign.center,
                   ),

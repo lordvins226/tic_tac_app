@@ -12,8 +12,9 @@ class _MapPageState extends State<MapPage> {
   static LatLng _initialPosition;
   final Set<Marker> _markers = {};
   static LatLng _lastMapPosition = _initialPosition;
+  MapType _currentMapType = MapType.normal;
 
-  void _getUserLocation() async {
+  Future _getUserLocation() async {
     try {
       Position position = await Geolocator()
           .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
@@ -30,7 +31,6 @@ class _MapPageState extends State<MapPage> {
 
   @override
   void initState() {
-    _initialPosition;
     _getUserLocation();
     super.initState();
   }
@@ -40,16 +40,18 @@ class _MapPageState extends State<MapPage> {
     return ResponsiveBuilder(builder: (context, sizingInformation) {
       return SafeArea(
         child: Scaffold(
-            body: Stack(
-          children: [
-            GoogleMap(
-              markers: _markers,
-              initialCameraPosition: CameraPosition(
-                target: _initialPosition,
-                zoom: 12,
-              ),
-            )
-          ],
+            body:
+            _initialPosition == null
+                ? Container()
+                :GoogleMap(
+          myLocationButtonEnabled: true,
+          myLocationEnabled: true,
+          mapType: _currentMapType,
+          markers: _markers,
+          initialCameraPosition: CameraPosition(
+            target: _initialPosition,
+            zoom: 12,
+          ),
         )),
       );
     });
