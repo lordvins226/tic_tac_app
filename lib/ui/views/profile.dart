@@ -58,7 +58,6 @@ class _ProfilePageState extends State<ProfilePage> {
             label: Text("Scanner"),
             onPressed: (){
               scanQR;
-
             },
           ),
           floatingActionButtonLocation:

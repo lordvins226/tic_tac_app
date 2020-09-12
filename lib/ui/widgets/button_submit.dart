@@ -8,9 +8,9 @@ class ButtonSubmit extends StatefulWidget {
 
   const ButtonSubmit(
       {@required this.title,
-      @required this.onPressed,
-      this.busy,
-      this.enabled});
+        @required this.onPressed,
+        this.busy,
+        this.enabled});
 
   @override
   _ButtonSubmitState createState() => _ButtonSubmitState();
@@ -22,8 +22,7 @@ class _ButtonSubmitState extends State<ButtonSubmit> {
     return GestureDetector(
       onTap: widget.onPressed,
       child: Container(
-        height: 50,
-        //width: MediaQuery.of(context).size.width / 1.5,
+        width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.symmetric(vertical: 15),
         alignment: Alignment.center,
         decoration: BoxDecoration(
@@ -36,13 +35,12 @@ class _ButtonSubmitState extends State<ButtonSubmit> {
                   spreadRadius: 2)
             ],
             gradient: LinearGradient(
-//              begin: Alignment.centerLeft,
-//              end: Alignment.centerRight,
-              colors: [Color(0xFFf7418c), Color(0xFFfbab66)],
-            )),
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [Color(0xFFf7418c), Color(0xFFfbab66)])),
         child: Text(
           widget.title,
-          style: TextStyle(fontSize: 20, color: Colors.white),
+          style: TextStyle(fontSize: 22, color: Colors.white),
         ),
       ),
     );
