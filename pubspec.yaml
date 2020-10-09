@@ -25,7 +25,7 @@ dependencies:
   barcode_scan: 1.0.0
   google_maps_flutter: ^0.5.28+1
   geolocator: ^5.1.4+2
-
+  liquid_swipe: ^1.5.0
 
 
 dev_dependencies:
