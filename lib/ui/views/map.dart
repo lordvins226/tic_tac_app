@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:tic_tac_app/utils/responsive_builder.dart';
 
 class MapPage extends StatefulWidget {
   @override
@@ -37,23 +36,20 @@ class _MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveBuilder(builder: (context, sizingInformation) {
-      return SafeArea(
-        child: Scaffold(
-            body:
-            _initialPosition == null
-                ? Container()
-                :GoogleMap(
-          myLocationButtonEnabled: true,
-          myLocationEnabled: true,
-          mapType: _currentMapType,
-          markers: _markers,
-          initialCameraPosition: CameraPosition(
-            target: _initialPosition,
-            zoom: 12,
-          ),
-        )),
-      );
-    });
+    return SafeArea(
+      child: Scaffold(
+          body: _initialPosition == null
+              ? Container()
+              : GoogleMap(
+                  myLocationButtonEnabled: true,
+                  myLocationEnabled: true,
+                  mapType: _currentMapType,
+                  markers: _markers,
+                  initialCameraPosition: CameraPosition(
+                    target: _initialPosition,
+                    zoom: 12,
+                  ),
+                )),
+    );
   }
 }

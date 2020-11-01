@@ -4,14 +4,12 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:tic_tac_app/core/providers/auth_provider.dart';
 import 'package:tic_tac_app/core/providers/google_sign_in_provider.dart';
-import 'package:tic_tac_app/ui/views/home.dart';
 import 'package:tic_tac_app/ui/widgets/button_google.dart';
 import 'package:tic_tac_app/ui/widgets/button_submit.dart';
 import 'package:tic_tac_app/ui/widgets/create_account_label.dart';
 import 'package:flutter/material.dart';
 import 'package:tic_tac_app/ui/widgets/divider.dart';
 import 'package:tic_tac_app/ui/widgets/tictac_title.dart';
-import 'package:tic_tac_app/utils/responsive_builder.dart';
 
 import '../../service_locator.dart';
 
@@ -101,67 +99,57 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveBuilder(
-      builder: (context, sizingInformation) {
-        return SafeArea(
-          child: Scaffold(body: LayoutBuilder(
-            builder:
-                (BuildContext context, BoxConstraints viewportConstraints) {
-              return SingleChildScrollView(
-                  physics: AlwaysScrollableScrollPhysics(),
-                  child: Container(
-                      height: sizingInformation.screenSize.height,
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(
-                            minHeight: viewportConstraints.maxHeight),
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              TitleTicTac(),
-                              _emailPasswordWidget(),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Builder(builder: (context) {
-                                return ButtonSubmit(
-                                  title: 'Connexion',
-                                  onPressed: () async {},
-                                );
-                              }),
-                              Container(
-                                padding: EdgeInsets.symmetric(vertical: 10),
-                                alignment: Alignment.center,
-                                child: Text('Mot de Passe Oublié ?',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500)),
-                              ),
-                              DividerWidget(),
-                              ButtonGoogle(
-                                onPressed: () async {
-                                  print("Connexion avec Google");
-                                  locator<GoogleProvider>()
-                                      .login()
-                                      .whenComplete(() {
-                                    Navigator.pushReplacementNamed(
-                                        context, "/Home");
-                                  });
-                                  locator<GoogleProvider>()
-                                      .createUserInFirestore(context);
-                                },
-                              ),
-                              CreateAccountLabel()
-                            ],
-                          ),
-                        ),
-                      )));
-            },
-          )),
-        );
-      },
+    return SafeArea(
+      child: Scaffold(body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints viewportConstraints) {
+          return SingleChildScrollView(
+              physics: AlwaysScrollableScrollPhysics(),
+              child: Container(
+                  child: ConstrainedBox(
+                constraints:
+                    BoxConstraints(minHeight: viewportConstraints.maxHeight),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      TitleTicTac(),
+                      _emailPasswordWidget(),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Builder(builder: (context) {
+                        return ButtonSubmit(
+                          title: 'Connexion',
+                          onPressed: () async {},
+                        );
+                      }),
+                      Container(
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        alignment: Alignment.center,
+                        child: Text('Mot de Passe Oublié ?',
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.w500)),
+                      ),
+                      DividerWidget(),
+                      ButtonGoogle(
+                        onPressed: () async {
+                          print("Connexion avec Google");
+                          locator<GoogleProvider>().login().whenComplete(() {
+                            Navigator.pushReplacementNamed(context, "/Home");
+                          });
+                          locator<GoogleProvider>()
+                              .createUserInFirestore(context);
+                        },
+                      ),
+                      CreateAccountLabel()
+                    ],
+                  ),
+                ),
+              )));
+        },
+      )),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tic_tac_app/utils/responsive_builder.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -40,30 +39,26 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveBuilder(builder: (context, sizingInformation) {
-      return SafeArea(
-        child: Scaffold(
-          body: Center(
-            child: Container(
-              child: Text(
-                qrCode,
-                style:
-                    new TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
-              ),
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Container(
+            child: Text(
+              qrCode,
+              style: new TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
             ),
           ),
-          floatingActionButton: FloatingActionButton.extended(
-            backgroundColor: Color(0xFFf7418c),
-            icon: Icon(Icons.camera_alt),
-            label: Text("Scanner"),
-            onPressed: (){
-              scanQR;
-            },
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerFloat,
         ),
-      );
-    });
+        floatingActionButton: FloatingActionButton.extended(
+          backgroundColor: Color(0xFFf7418c),
+          icon: Icon(Icons.camera_alt),
+          label: Text("Scanner"),
+          onPressed: () {
+            scanQR;
+          },
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      ),
+    );
   }
 }

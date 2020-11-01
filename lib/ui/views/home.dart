@@ -6,7 +6,6 @@ import 'package:tic_tac_app/ui/widgets/search_input.dart';
 import 'package:tic_tac_app/ui/widgets/tictac_title.dart';
 import 'package:tic_tac_app/ui/widgets/top_menu.dart';
 import 'package:tic_tac_app/utils/app_color.dart';
-import 'package:tic_tac_app/utils/responsive_builder.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,42 +15,40 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return ResponsiveBuilder(builder: (context, sizingInformation) {
-      return SafeArea(
-        child: Scaffold(
-          backgroundColor: Colors.white,
-          appBar: PreferredSize(
-            preferredSize: Size.fromHeight(0),
-            child: AppBar(
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-              brightness: Brightness.light,
-              actions: [
-                GestureDetector(
-                  child: Icon(FontAwesomeIcons.shoppingBag),
-                )
-              ],
-            ),
-          ),
-          body: Stack(
-            children: [
-              SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    _buildHeader(context),
-                    _buildSubHeader(context),
-                    SearchInput(),
-                    TopMenus(),
-                    PopularFoodsWidget()
-                  ],
-                ),
-              ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(0),
+          child: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            brightness: Brightness.light,
+            actions: [
+              GestureDetector(
+                child: Icon(FontAwesomeIcons.shoppingBag),
+              )
             ],
           ),
         ),
-      );
-    });
+        body: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  _buildHeader(context),
+                  _buildSubHeader(context),
+                  SearchInput(),
+                  TopMenus(),
+                  PopularFoodsWidget()
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -99,7 +96,10 @@ _buildHeader(BuildContext context) {
             onTap: () {
               Navigator.pushReplacementNamed(context, "/Cart");
             },
-            child: Icon(FontAwesomeIcons.shoppingBag,size: 20,)),
+            child: Icon(
+              FontAwesomeIcons.shoppingBag,
+              size: 20,
+            )),
       ],
     ),
   );
