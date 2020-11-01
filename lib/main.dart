@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:tic_tac_app/service_locator.dart';
 import 'package:tic_tac_app/ui/views/FoodOrderPage.dart';
 import 'package:tic_tac_app/ui/views/login.dart';
 import 'package:tic_tac_app/ui/views/profile.dart';
@@ -15,7 +14,6 @@ import 'core/providers/auth_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  setupLocator();
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
