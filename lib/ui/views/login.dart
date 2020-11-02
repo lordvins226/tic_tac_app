@@ -11,8 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:tic_tac_app/ui/widgets/divider.dart';
 import 'package:tic_tac_app/ui/widgets/tictac_title.dart';
 
-import '../../service_locator.dart';
-
 final GoogleSignIn googleSignIn = GoogleSignIn();
 
 class LoginPage extends StatefulWidget {
@@ -38,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
   }
 
-  Widget _entryField(String title, String inputTitle,
+  Widget _entryField(String inputTitle,
       {bool isPassword = false,
       FormFieldValidator validator,
       ValueChanged onChanged}) {
@@ -47,13 +45,6 @@ class _LoginPageState extends State<LoginPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              title,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-            ),
-          ),
           SizedBox(
             height: 10,
           ),
@@ -76,19 +67,16 @@ class _LoginPageState extends State<LoginPage> {
         children: <Widget>[
           _entryField(
             "Email",
-            "Email",
             validator: (val) => !EmailValidator.validate(val, true)
-                ? "L'adresse Email est Invalid"
+                ? "L'adresse email est Invalide"
                 : null,
             onChanged: (val) => _email = val,
           ),
           _entryField(
             "Mot de Passe",
-            "Mot de Passe",
             isPassword: true,
             validator: (val) => val.length < 6
-                ? 'Entrez un mot de passe avec plus de 6 caractères'
-                    'des caracteres'
+                ? 'Entrez un mot de passe de plus de 6 caractères'
                 : null,
             onChanged: (val) => _password = val,
           ),
@@ -136,11 +124,11 @@ class _LoginPageState extends State<LoginPage> {
                       ButtonGoogle(
                         onPressed: () async {
                           print("Connexion avec Google");
-                          locator<GoogleProvider>().login().whenComplete(() {
-                            Navigator.pushReplacementNamed(context, "/Home");
-                          });
-                          locator<GoogleProvider>()
-                              .createUserInFirestore(context);
+                          // locator<GoogleProvider>().login().whenComplete(() {
+                          //   Navigator.pushReplacementNamed(context, "/Home");
+                          // });
+                          // locator<GoogleProvider>()
+                          //     .createUserInFirestore(context);
                         },
                       ),
                       CreateAccountLabel()

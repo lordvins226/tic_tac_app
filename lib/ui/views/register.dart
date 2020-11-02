@@ -29,7 +29,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   final _formKey = GlobalKey<FormState>();
 
-  Widget _entryField(String title, String inputTitle,
+  Widget _entryField(String inputTitle,
       {bool isPassword = false,
       FormFieldValidator validator,
       ValueChanged onChanged}) {
@@ -38,13 +38,6 @@ class _RegisterPageState extends State<RegisterPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              title,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-            ),
-          ),
           SizedBox(
             height: 5,
           ),
@@ -70,12 +63,10 @@ class _RegisterPageState extends State<RegisterPage> {
         children: <Widget>[
           _entryField(
             "Nom d'utilisateur",
-            "Nom d'utilisateur",
             validator: (val) => val.isEmpty ? 'Entrer le Nom' : null,
             onChanged: (val) => username = val,
           ),
           _entryField(
-            "Email",
             "Email",
             validator: (val) => !EmailValidator.validate(val, true)
                 ? "L'adresse Email est Invalid"
@@ -84,7 +75,6 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           _entryField(
             "Mot de Passe",
-            "Mot de Passe",
             validator: (val) => val.length < 6
                 ? 'Entrez un mot de passe avec plus de 6 caractères'
                     'des caracteres'
@@ -92,7 +82,7 @@ class _RegisterPageState extends State<RegisterPage> {
             onChanged: (val) => password = val,
             isPassword: true,
           ),
-          _entryField("Confirmer Mot de Passe", "Confirmer le Mot de Passe",
+          _entryField("Confirmer Mot de Passe",
               onChanged: (val) => confirmPassword = val,
               validator: (val) => confirmPassword != password
                   ? 'Le Mot de passe ne correspond pas'
@@ -132,7 +122,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               Builder(
                                 builder: (context) {
                                   return ButtonSubmit(
-                                    title: "S'inscrire",
+                                    title: "Créer un compte",
                                     onPressed: () async {
                                       if (_formKey.currentState.validate()) {
                                         _formKey.currentState.save();
@@ -151,7 +141,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                         if (result == null) {
                                           setState(() {
                                             error =
-                                                'Veuillez Entrer un Email Valid';
+                                                'Veuillez entrer une adresse email Valide';
                                           });
                                         } else {
                                           showAlertDialogSuccess(context);
