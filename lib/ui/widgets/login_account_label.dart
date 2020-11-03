@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tic_tac_app/ui/views/login.dart';
 
 class LoginAccountLabel extends StatelessWidget {
@@ -17,8 +18,7 @@ class LoginAccountLabel extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginPage()));
+              Get.off(LoginPage());
             },
             child: Text(
               'Se Connecter',
@@ -33,4 +33,3 @@ class LoginAccountLabel extends StatelessWidget {
     );
   }
 }
-

@@ -2,8 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
-import 'package:tic_tac_app/core/providers/auth_provider.dart';
-import 'package:tic_tac_app/core/providers/google_sign_in_provider.dart';
+
 import 'package:tic_tac_app/ui/widgets/button_google.dart';
 import 'package:tic_tac_app/ui/widgets/button_submit.dart';
 import 'package:tic_tac_app/ui/widgets/create_account_label.dart';
@@ -30,9 +29,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
-    super.initState();
-    Auth auth = Provider.of<Auth>(context, listen: false);
-    //initializeCurrentUser(Auth);
     super.initState();
   }
 

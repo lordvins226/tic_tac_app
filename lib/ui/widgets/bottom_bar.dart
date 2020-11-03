@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tic_tac_app/core/controllers/BottomNavigationBarProvider.dart';
+import 'package:tic_tac_app/core/controllers/bottom_bar_controller.dart';
 import 'package:tic_tac_app/ui/views/home.dart';
 import 'package:tic_tac_app/ui/views/map.dart';
 import 'package:tic_tac_app/ui/views/profile.dart';
