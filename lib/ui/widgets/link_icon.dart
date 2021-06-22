@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class LinkIcon extends StatelessWidget {
-  final String imageSrc;
-  final double width;
-  final double height;
-  final Function onTap;
+  final String? imageSrc;
+  final double? width;
+  final double? height;
+  final Function? onTap;
 
   LinkIcon({    
     this.imageSrc,
@@ -16,9 +16,9 @@ class LinkIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: this.onTap,
+      onTap: this.onTap as void Function()?,
       child: Image.asset(
-        this.imageSrc,
+        this.imageSrc!,
         width: this.width,
         height: this.height,
       ),

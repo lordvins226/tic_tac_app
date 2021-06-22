@@ -126,10 +126,10 @@ class FoodTitleWidget extends StatelessWidget {
   String productHost;
 
   FoodTitleWidget({
-    Key key,
-    @required this.productName,
-    @required this.productPrice,
-    @required this.productHost,
+    Key? key,
+    required this.productName,
+    required this.productPrice,
+    required this.productHost,
   }) : super(key: key);
 
   @override

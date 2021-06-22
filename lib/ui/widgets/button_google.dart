@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ButtonGoogle extends StatefulWidget {
   final Function onPressed;
 
-  const ButtonGoogle({@required this.onPressed});
+  const ButtonGoogle({required this.onPressed});
 
   @override
   _ButtonGoogleState createState() => _ButtonGoogleState();
@@ -13,7 +13,7 @@ class _ButtonGoogleState extends State<ButtonGoogle> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onPressed,
+      onTap: widget.onPressed as void Function()?,
       child: Container(
         height: 50,
         margin: EdgeInsets.symmetric(vertical: 20),

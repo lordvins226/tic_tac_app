@@ -11,7 +11,7 @@ class WelcomePage extends StatelessWidget {
         body: LiquidSwipe(
           pages: pages,
           fullTransitionValue: 500,
-          enableSlideIcon: true,
+        
           enableLoop: false,
         ),
       ),

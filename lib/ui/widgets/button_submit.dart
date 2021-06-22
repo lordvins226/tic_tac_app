@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class ButtonSubmit extends StatefulWidget {
   final String title;
   final Function onPressed;
-  final bool busy;
-  final bool enabled;
+  final bool? busy;
+  final bool? enabled;
 
   const ButtonSubmit(
-      {@required this.title,
-        @required this.onPressed,
+      {required this.title,
+        required this.onPressed,
         this.busy,
         this.enabled});
 
@@ -20,7 +20,7 @@ class _ButtonSubmitState extends State<ButtonSubmit> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onPressed,
+      onTap: widget.onPressed as void Function()?,
       child: Container(
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.symmetric(vertical: 15),
@@ -37,7 +37,7 @@ class _ButtonSubmitState extends State<ButtonSubmit> {
             gradient: LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
-                colors: [Color(0xFFf7418c), Color(0xFFfbab66)])),
+                colors:[Color(0xFFf7418c), Color(0xFFfbab66)])),
         child: Text(
           widget.title,
           style: TextStyle(fontSize: 22, color: Colors.white),

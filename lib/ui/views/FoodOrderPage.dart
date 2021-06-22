@@ -310,11 +310,11 @@ class CartItem extends StatelessWidget {
   String productCartQuantity;
 
   CartItem({
-    Key key,
-    @required this.productName,
-    @required this.productPrice,
-    @required this.productImage,
-    @required this.productCartQuantity,
+    Key? key,
+    required this.productName,
+    required this.productPrice,
+    required this.productImage,
+    required this.productCartQuantity,
   }) : super(key: key);
 
   @override

@@ -4,15 +4,15 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleProvider with ChangeNotifier {
   final GoogleSignIn googleSignIn = GoogleSignIn();
-  final usersRef = Firestore.instance.collection('users');
-  bool isAuth;
+  final usersRef = FirebaseFirestore.instance.collection('users');
+  bool? isAuth;
 
   createUserInFirestore(BuildContext context) async {
-    final GoogleSignInAccount user = googleSignIn.currentUser;
-    final DocumentSnapshot doc = await usersRef.document(user.id).get();
+    final GoogleSignInAccount user = googleSignIn.currentUser!;
+    final DocumentSnapshot doc = await usersRef.doc(user.id).get();
 
     if (!doc.exists) {
-      usersRef.document(user.id).setData({
+      usersRef.doc(user.id).set({
         "id": user.id,
         "username": user.displayName,
         "photoUrl": user.photoUrl,

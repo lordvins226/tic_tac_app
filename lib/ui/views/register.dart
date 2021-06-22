@@ -17,10 +17,10 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   FirebaseAuth _auth = FirebaseAuth.instance;
-  FirebaseUser currentUser;
+  User? currentUser;
 
   final CollectionReference userCollection =
-      Firestore.instance.collection('users');
+      FirebaseFirestore.instance.collection('users');
   String username = "";
   String email = "";
   String password = "";
@@ -31,8 +31,8 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Widget _entryField(String inputTitle,
       {bool isPassword = false,
-      FormFieldValidator validator,
-      ValueChanged onChanged}) {
+      FormFieldValidator? validator,
+      ValueChanged? onChanged}) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -124,53 +124,53 @@ class _RegisterPageState extends State<RegisterPage> {
                                   return ButtonSubmit(
                                     title: "Créer un compte",
                                     onPressed: () async {
-                                      if (_formKey.currentState.validate()) {
-                                        _formKey.currentState.save();
-                                        AuthResult result = await _auth
-                                            .createUserWithEmailAndPassword(
-                                                email: email,
-                                                password: password);
-                                        FirebaseUser user = result.user;
-                                        await userCollection
-                                            .document(user.uid)
-                                            .setData({
-                                          'Email': email,
-                                          'Username': username
-                                        });
+//                                       if (_formKey.currentState.validate()) {
+//                                         _formKey.currentState.save();
+//                                         AuthResult result = await _auth
+//                                             .createUserWithEmailAndPassword(
+//                                                 email: email,
+//                                                 password: password);
+//                                         FirebaseUser user = result.user;
+//                                         await userCollection
+//                                             .document(user.uid)
+//                                             .setData({
+//                                           'Email': email,
+//                                           'Username': username
+//                                         });
 
-                                        if (result == null) {
-                                          setState(() {
-                                            error =
-                                                'Veuillez entrer une adresse email Valide';
-                                          });
-                                        } else {
-                                          showAlertDialogSuccess(context);
-                                          Scaffold.of(context).showSnackBar(
-                                              SnackBar(
-                                                  content: Text(
-                                                    "Compte Créer avec Succès",
-                                                    style: TextStyle(
-                                                        color: Colors.green),
-                                                  ),
-                                                  duration:
-                                                      Duration(seconds: 3)));
-//                                              Navigator.push(
-//                                                  context,
-//                                                  MaterialPageRoute(
-//                                                      builder: (context) =>
-//                                                          LoginPage()));
-                                        }
-                                      } else {
-                                        Scaffold.of(context).showSnackBar(
-                                            SnackBar(
-                                                content: Text(
-                                                  "Impossible de Creer Un Compte",
-                                                  style: TextStyle(
-                                                      color: Colors.red),
-                                                ),
-                                                duration:
-                                                    Duration(seconds: 3)));
-                                      }
+//                                         if (result == null) {
+//                                           setState(() {
+//                                             error =
+//                                                 'Veuillez entrer une adresse email Valide';
+//                                           });
+//                                         } else {
+//                                           showAlertDialogSuccess(context);
+//                                           Scaffold.of(context).showSnackBar(
+//                                               SnackBar(
+//                                                   content: Text(
+//                                                     "Compte Créer avec Succès",
+//                                                     style: TextStyle(
+//                                                         color: Colors.green),
+//                                                   ),
+//                                                   duration:
+//                                                       Duration(seconds: 3)));
+// //                                              Navigator.push(
+// //                                                  context,
+// //                                                  MaterialPageRoute(
+// //                                                      builder: (context) =>
+// //                                                          LoginPage()));
+//                                         }
+//                                       } else {
+//                                         Scaffold.of(context).showSnackBar(
+//                                             SnackBar(
+//                                                 content: Text(
+//                                                   "Impossible de Creer Un Compte",
+//                                                   style: TextStyle(
+//                                                       color: Colors.red),
+//                                                 ),
+//                                                 duration:
+//                                                     Duration(seconds: 3)));
+//                                       }
                                     },
                                   );
                                 },

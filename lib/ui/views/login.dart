@@ -13,9 +13,9 @@ import 'package:tic_tac_app/ui/widgets/tictac_title.dart';
 final GoogleSignIn googleSignIn = GoogleSignIn();
 
 class LoginPage extends StatefulWidget {
-  LoginPage({Key key, this.title}) : super(key: key);
+  LoginPage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -23,8 +23,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool isAuth = false;
-  String _email;
-  String _password;
+  String? _email;
+  String? _password;
   final _formKey = new GlobalKey<FormState>();
 
   @override
@@ -34,8 +34,8 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _entryField(String inputTitle,
       {bool isPassword = false,
-      FormFieldValidator validator,
-      ValueChanged onChanged}) {
+      FormFieldValidator? validator,
+      ValueChanged? onChanged}) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Column(

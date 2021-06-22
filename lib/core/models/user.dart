@@ -1,6 +1,6 @@
 
 class User {
-  String displayName;
-  String email;
-  String password;
+  String? displayName;
+  String? email;
+  String? password;
 }

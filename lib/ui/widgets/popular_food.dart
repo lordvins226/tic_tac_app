@@ -37,13 +37,13 @@ class PopularFoodTiles extends StatelessWidget {
   String slug;
 
   PopularFoodTiles(
-      {Key key,
-        @required this.name,
-        @required this.imageUrl,
-        @required this.rating,
-        @required this.numberOfRating,
-        @required this.price,
-        @required this.slug})
+      {Key? key,
+        required this.name,
+        required this.imageUrl,
+        required this.rating,
+        required this.numberOfRating,
+        required this.price,
+        required this.slug})
       : super(key: key);
 
   @override
